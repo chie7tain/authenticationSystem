@@ -13,8 +13,10 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 			session_destroy(); 
 		}
 	?>
-		<h1>Login to your Dashboard</h1>
-
+		<header class="header-container">
+			<h1>Login to your Dashboard</h1>
+		</header>
+<div class="form-container">
 <form method="POST" action="processLogin.php">
 
 			<?php
@@ -28,24 +30,29 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 				}
 			?>
 
-		<p>
-			<label>Email:</label><br>
-			<input
+		<div>
+			<div>
+			<label class="field-label">Email:</label>
+			</div>
+			<input class="input-field"
 			<?php
 				if(isset($_SESSION['email'])){
 					echo"value=".$_SESSION["email"];
 				}
 			?>
 			type="text" name="email" placeholder="example@email.com">
-		</p>
+		</div>
 
-		<p>
-			<label>Password:</label><br>
-			<input type="password" name="password" placeholder="Password" >
-		</p>
+		<div>
+			<div>
+			<label class="field-label">Password:</label>
+			</div>
+			<input class="input-field" type="password" name="password" placeholder="Password" >
+		</div>
 
-		<p>
-			<input type="Submit" value="Login">
-		</p>
+		<div>
+			<input class="btn" type="Submit" value="Login">
+		</div>
 	</form>
+</div>
 <?php include_once('lib/footer.php')?>

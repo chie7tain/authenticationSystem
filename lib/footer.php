@@ -1,19 +1,17 @@
 
- <p>
- 	<a href="index.php">Home</a> ||
+ <nav class="nav-container">
+ 	<a class="nav-links" href="index.php">Home</a> ||
  	<?php
  	if(!isset($_SESSION["LoggedIn"])){ ?>
 
-	<a href="login.php">Login</a> ||
- 	<a href="register.php">Register</a> ||
- 	<a href="forgot_password.php">Forgot Password</a>
+	<a class="nav-links" href="login.php">Login</a> ||
+ 	<a class="nav-links" href="register.php">Register</a> ||
+ 	<a class="nav-links" href="forgot_password.php">Forgot Password</a>
 <?php }else{?>
-<a href="logout.php">Logout</a> ||
-<a href="reset_password.php">Reset Password</a>
+<a class="nav-links" href="logout.php">Logout</a> ||
+<a class="nav-links" href="reset_password.php">Reset Password</a>
 <?php } ?>
- 	
- 	
- </p>
+</nav>
 </body>
 
 </html>

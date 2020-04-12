@@ -6,12 +6,15 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 }
 
 ?>
+<header class="header-container">
 	<h1>Welcome, Please Register</h1>
 	<p>All fields are required</p>
+</header>
 
 
+<div class="form-container">
 	<form method="POST" action="processregister.php">
-		<!-- <p> -->
+		<!-- <div> -->
 			<?php
 				if(isset($_SESSION["error"]) && !empty($_SESSION["error"])){
 
@@ -22,41 +25,41 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 					session_destroy();
 				}
 			?>
-		<!-- </p> -->
-		<p>
-			<label>First Name:</label><br>
-			<input
+		<!-- </div> -->
+		<div>
+			<label class="field-label">First Name:</label><br>
+			<input class="input-field"
 			<?php
 			// echo "value='their father'"
 				if(isset($_SESSION["first_name"])){
 					echo "value=" . $_SESSION["first_name"];
 				}
 			?>
-			type="text" name="first_name" placeholder="First Name" >
-		</p>
-		<p>
-			<label>Last Name:</label><br>
-			<input
+			type="text" name="first_name" placeholder="First Name">
+		</div>
+		<div>
+			<label class="field-label">Last Name:</label><br>
+			<input class="input-field"
 			<?php
 				if(isset($_SESSION["last_name"])){
 					echo "value=".$_SESSION["last_name"];
 				}
 			?>
 			 type="text" name="last_name" placeholder="Last Name">
-		</p>
-		<p>
-			<label>Email:</label><br>
-			<input
+		</div>
+		<div>
+			<label class="field-label">Email:</label><br>
+			<input class="input-field"
 			<?php
 				if(isset($_SESSION['email'])){
 					echo"value=".$_SESSION["email"];
 				}
 			?>
 			type="text" name="email" placeholder="example@email.com">
-		</p>
-		<p>
-			<label>Gender:</label><br>
-			<select name="gender">
+		</div>
+		<div>
+			<label class="field-label">Gender:</label><br>
+			<select name="gender" class="input-field">
 				<option selected="" disabled="">select gender</option>
 		<option
 			<?php 
@@ -75,23 +78,23 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 			?>
 		>Male</option>
 			</select>
-		</p>
+		</div>
 
-		<p>
-			<label>Password:</label>
-			<input
+		<div>
+			<label class="field-label">Password:</label>
+			<input class="input-field"
 			<?php
 				if(isset($_SESSION['password'])){
 					echo"value=".$_SESSION["password"];
 				}
 			?> 
 			type="password" name="password" placeholder="Password" >
-		</p>
+		</div>
 
 
-		<p>
-<label>Designation:</label>
-	<select name="designation">
+		<div>
+<label class="field-label">Designation:</label>
+	<select name="designation" class="input-field">
 	<option selected="" disabled="">select designation</option>
 	<option
 		<?php 
@@ -109,21 +112,21 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 		?>
 	>Patient</option>
 	</select>
-		</p>
+		</div>
 
-		<p>
-			<label>Department:</label>
-			<input
+		<div>
+			<label class="field-label">Department:</label>
+			<input class="input-field"
 			<?php
 				if(isset($_SESSION['department'])){
 					echo"value=".$_SESSION["department"];
 				}
 			?>
 			type="text" name="department" placeholder="Department to visit">
-		</p>
-		<p>
-			<input type="Submit" value="Register">
-		</p>
+		</div>
+		<div>
+			<input class="btn" type="Submit" value="Register">
+		</div>
 	</form>
-
+</div>
 <?php include_once('lib/footer.php')?>

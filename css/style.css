@@ -1,0 +1,89 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #1ab;
+}
+.header-container{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	text-align: center;
+}
+.header-container > h1,p {
+	font-family: "Bree serif",serif;
+	color:#fff;
+}
+.nav-container{
+	width:100%;
+	text-align: center;
+	padding: 1%;
+	margin: 2%;
+}
+.nav-links{
+	text-decoration: none;
+	color:#fff;
+	margin:2%;
+	font-family: "Bree serif",serif;
+}
+.nav-links:hover{
+	color:blue;
+}
+.nav-links:active{
+	color:green;
+}
+/*styles for the form container*/
+.form-container{
+	max-width: 28rem;
+	margin:auto;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	background-color: pink;
+	padding: 1rem;
+	font-family: "Bree serif",serif;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.field-label{
+	font-size:1rem;
+	font-family: "Bree serif",serif;
+}
+.input-field{
+	margin:2% auto;
+	padding:2%;
+	width:100%;
+	font-size: 1em;
+	font-family: "Bree serif",serif;
+	color:#1ab;
+}
+.btn{
+	width:100%;
+	font-size: 1em;
+	background: #1ab;
+	color:#fff;
+	font-family: "Bree serif",serif;
+	margin:2% auto;
+	border:none;
+	cursor: pointer;
+	padding:1%;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+/*styles for dashboard*/
+.dashboard{
+	display: flex;
+	flex-direction: column;
+	
+	width: 100%;
+	padding: 2%;
+	color:whitesmoke;
+}

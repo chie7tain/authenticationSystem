@@ -10,8 +10,13 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	<?php 
 		if(isset($_SESSION['message']) && !empty($_SESSION['message'])){
 			echo "<span style='color:green'>".$_SESSION['message']."</span>";
+
 			session_destroy(); 
+		}elseif (isset($_SESSION['error'])) {
+			echo "<span style='color:red'>".$_SESSION['error']."</span>";
+			session_destroy();
 		}
+
 	?>
 		<header class="header-container">
 			<h1>Login to your Dashboard</h1>

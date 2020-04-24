@@ -1,5 +1,14 @@
-<?php include_once('lib/header.php')?>
+<?php 
+
+include_once('lib/header.php');
+if(!isset($_GET['token'])){
+	$_SESSION['error'] = "you are not authorised to view that page";
+	header("Location: login.php");
+}
+
+?>
 	
+
 	<h3>Reset Password</h3>
 	<p>Reset Password associated with your account: [email]</p>
 
@@ -15,10 +24,23 @@
 					session_destroy();
 				}
 			?>
-			<input type="hidden" name="token" value="<?php echo $_GET['token']?>">
+			<input <?php 
+			if(isset($_SESSION['token'])){
+				echo "value=''" . $_SESSION['token'] ." ";
+			}else{
+			echo "value=''" .$_GET['token']. "";
+			}
+			?>
+			type="hidden" name="token">
 			<div>
 				<label>Email:</label><br>
-				<input readonly="" value="[email]" type="email" name="email" placeholder="email@example.com">
+				<input 
+				<?php
+				if(isset($_SESSION['email'])){
+					echo "value=''" .$_SESSION['email'];
+				}
+				?>
+				 value="" type="email" name="email" placeholder="email@example.com">
 			</div>
 			<div>
 				<label>Enter New Password</label><br>

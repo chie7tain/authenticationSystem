@@ -24,7 +24,15 @@ if($errorCount >0){
 
 		if($currentUser == $email . ".json"){
 			// token would help to confirm users
-			$token = "iamjohnbull";
+			$token = "";
+			$alphabets = ['a','A','b','B','c','C','d','D','e','E','f','F','g','G','h','H','i','I','j','J','l','L','m','M','n','N','o','O','p','P','q','Q','r','R','s','S','t','T','u','U','v','V','w','W','x','X','y','Y','z','Z',1,2,3,4,5,6,7,8,9,0,'$','%','/','@'];
+
+			for($i = 0;$i < 20; $i++){
+
+				$index = mt_rand(0,count($alphabets));
+				// $secIndex = mt_rand(0,26);
+				$token .= $alphabets[$index];
+			}
 			$subject = "Password Reset Link";
 			$message = "A password reset has been initiated from your account, if you did not initiate this reset, please disregard this message, otherwise, visit: localhost/smh/reset.php?token=$token";
 			$headers = "From: no-reply@snh.org" . "\r\n" . 

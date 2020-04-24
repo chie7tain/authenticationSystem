@@ -21,15 +21,20 @@ if($errorCount >0){
 	// check if user exists 
 	for($counter = 0; $counter <= $countAllUsers; $counter++ ){
 		$currentUser = $allUsers[$counter];
+
 		if($currentUser == $email . ".json"){
+			// token would help to confirm users
+			$token = "iamjohnbull";
 			$subject = "Password Reset Link";
-			$message = "A password reset has been initiated from your account, if you did not initiate this reset, please disregard this message, otherwise, visit: localhost/snh/reset.php";
+			$message = "A password reset has been initiated from your account, if you did not initiate this reset, please disregard this message, otherwise, visit: localhost/smh/reset.php?token=$token";
 			$headers = "From: no-reply@snh.org" . "\r\n" . 
-			"CC: seyi@snh.org";
+			"CC: fredrick@snh.org";
 			
+			file_put_contents("db/tokens/" .$email. ".json",json_encode(["token"-> $token]));
+
 			$try = mail($email,$subject,$message,$headers);
-			print_r($try);
-			die();
+			// print_r($try);
+			// die();
 			if($try){
 				$_SESSION['error'] = "Password reset has been sent to your email: " . $email;
 				header("Location: login.php");

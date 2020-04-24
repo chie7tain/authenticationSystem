@@ -12,7 +12,7 @@ $first_name = $_POST["first_name"] != "" ? $_POST["first_name"] : $errorCount++ 
 $last_name = $_POST["last_name"] !== ""? $_POST["last_name"]:$errorCount++;
 
 $email = $_POST["email"] !=="" ? $_POST["email"]:$errorCount++;
-if($email = $_POST['email'] ===)
+// if($email = $_POST['email'] ===)
 $gender = $_POST["gender"] !== "" ? $_POST["gender"]:$errorCount++;
 
 $designation = $_POST["designation"] !== "" ? $_POST["designation"]:$errorCount++;

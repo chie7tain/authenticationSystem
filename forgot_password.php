@@ -17,7 +17,7 @@
 			?>
 			<div>
 				<label>Email:</label><br>
-				<input
+				<input 
 				<?php 
 					if(isset($_SESSION['email'])){
 						echo "value=" . $_SESSION['email'];

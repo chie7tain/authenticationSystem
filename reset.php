@@ -1,7 +1,7 @@
 <?php 
 
 include_once('lib/header.php');
-if(!isset($_GET['token'])){
+if(!isset($_GET['token']) && !isset($_SESSION['token'])){
 	$_SESSION['error'] = "you are not authorised to view that page";
 	header("Location: login.php");
 }
@@ -19,19 +19,18 @@ if(!isset($_GET['token'])){
 
 					echo "<span style='color:red'>" .$_SESSION["error"]."</span>";
 					// removes session variables
-					// session_unset();
-					// destroys session
 					session_destroy();
 				}
 			?>
-			<input <?php 
-			if(isset($_SESSION['token'])){
-				echo "value=''" . $_SESSION['token'] ." ";
-			}else{
-			echo "value=''" .$_GET['token']. "";
-			}
-			?>
-			type="hidden" name="token">
+			<input 
+			<?php 
+				if(isset($_SESSION['token'])){
+					echo "value='" . $_SESSION['token'] ."'";
+				}else{
+					echo "value='" .$_GET['token']. "'";
+				}
+				?>
+				type="hidden" name="token">
 			<div>
 				<label>Email:</label><br>
 				<input 

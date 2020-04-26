@@ -1,6 +1,7 @@
 
 <?php
 include_once('lib/header.php');
+
 if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	header("Location:dashboard.php");
 }
@@ -31,7 +32,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 					// removes session variables
 					// session_unset();
 					// destroys session
-					session_destroy();
+					// session_destroy();
 				}
 			?>
 

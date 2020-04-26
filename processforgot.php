@@ -38,13 +38,11 @@ if($errorCount >0){
 			$headers = "From: no-reply@snh.org" . "\r\n" . 
 			"CC: fredrick@snh.org";
 			
-			file_put_contents("db/tokens/" .$email. ".json",json_encode(["token"-> $token]));
+			file_put_contents("db/tokens/" .$email. ".json",json_encode(["token" => $token]));
 
 			$try = mail($email,$subject,$message,$headers);
-			// print_r($try);
-			// die();
 			if($try){
-				$_SESSION['error'] = "Password reset has been sent to your email: " . $email;
+				$_SESSION['message'] = "Password reset has been sent to your email: " . $email;
 				header("Location: login.php");
 			}else{
 				$_SESSION['error'] = "Something went wrong, we could not send password reset to: " . $email;

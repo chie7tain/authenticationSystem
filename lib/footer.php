@@ -9,7 +9,7 @@
  	<a class="nav-links" href="forgot_password.php">Forgot Password</a>
 <?php }else{?>
 <a class="nav-links" href="logout.php">Logout</a> ||
-<a class="nav-links" href="reset_password.php">Reset Password</a>
+<a class="nav-links" href="reset.php">Reset Password</a>
 <?php } ?>
 </nav>
 </body>

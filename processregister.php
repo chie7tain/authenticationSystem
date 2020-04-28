@@ -1,4 +1,4 @@
-<?php session_start();
+<?php include_once('lib/header.php');
 
 
 // collecting error count during registration

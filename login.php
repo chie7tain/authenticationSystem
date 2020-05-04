@@ -1,6 +1,7 @@
 
 <?php
 include_once('lib/header.php');
+require_once('functions/alert.php');
 
 if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	header("Location:dashboard.php");
@@ -8,32 +9,16 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 
 ?>
 
-	<?php 
-		if(isset($_SESSION['message']) && !empty($_SESSION['message'])){
-			echo "<span style='color:green'>".$_SESSION['message']."</span>";
-
-			session_destroy(); 
-		}elseif (isset($_SESSION['error'])) {
-			echo "<span style='color:red'>".$_SESSION['error']."</span>";
-			session_destroy();
-		}
-
+	<?php
+	print_message();
 	?>
 		<header class="header-container">
 			<h1>Login to your Dashboard</h1>
 		</header>
 <div class="form-container">
 <form method="POST" action="processLogin.php">
-
 			<?php
-				if(isset($_SESSION["error"]) && !empty($_SESSION["error"])){
-
-					echo "<span style='color:red'>" .$_SESSION["error"]."</span>";
-					// removes session variables
-					// session_unset();
-					// destroys session
-					// session_destroy();
-				}
+			print_error();
 			?>
 
 		<div>

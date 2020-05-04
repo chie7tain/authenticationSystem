@@ -1,6 +1,7 @@
 <?php
 
 include_once('lib/header.php');
+require_once('functions/alert.php');
 if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	header("Location:dashboard.php");
 }
@@ -16,14 +17,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	<form method="POST" action="processregister.php">
 		<!-- <div> -->
 			<?php
-				if(isset($_SESSION["error"]) && !empty($_SESSION["error"])){
-
-					echo "<span style='color:red'>" .$_SESSION["error"]."</span>";
-					// removes session variables
-					// session_unset();
-					// destroys session
-					session_destroy();
-				}
+			error(); message();
 			?>
 		<!-- </div> -->
 		<div>
@@ -62,7 +56,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 			<select name="gender" class="input-field">
 				<option selected="" disabled="">select gender</option>
 		<option
-			<?php 
+			<?php
 				if(isset($_SESSION['gender']) && $_SESSION['gender'] == 'Female'){
 					echo 'selected';
 				}
@@ -71,7 +65,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 		>Female</option>
 
 		<option
-			<?php 
+			<?php
 				if(isset($_SESSION['gender']) && $_SESSION['gender'] == 'Male'){
 					echo 'selected';
 				}
@@ -87,7 +81,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 				if(isset($_SESSION['password'])){
 					echo"value=".$_SESSION["password"];
 				}
-			?> 
+			?>
 			type="password" name="password" placeholder="Password" >
 		</div>
 
@@ -97,7 +91,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	<select name="designation" class="input-field">
 	<option selected="" disabled="">select designation</option>
 	<option
-		<?php 
+		<?php
 			if(isset($_SESSION['designation']) && $_SESSION['designation'] == 'Medical Team(MT)'){
 				echo 'selected';
 			}
@@ -105,7 +99,7 @@ if(isset($_SESSION["LoggedIn"]) && !empty($_SESSION["LoggedIn"])){
 	>Medical Team(MT)</option>
 
 	<option
-	<?php 
+	<?php
 		if(isset($_SESSION['designation']) && $_SESSION['designation'] == 'Patient'){
 			echo 'selected';
 		}

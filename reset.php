@@ -1,25 +1,23 @@
 <?php include_once('lib/header.php');
+require_once('functions/alert.php');
+require_once('functions/users.php');
 // this line of code checks if the token is set either by GET or by Session and if not it means the user has not the proper authorization to view the reset password page i.e he/she has not gone to a registered email to get he reset link which contains a token
-	if(!isset($_SESSION['LoggedIn']) && !isset($_GET['token']) && !isset($_SESSION['token'])){
+	if(!is_user_loggedIn() && is_token_set()){
 		$_SESSION['error'] = "you are not authorised to password reset page ";
 		header("Location: login.php");
 	}
 ?>
 	<h3>Reset Password</h3>
-	<p>Reset Password associated with your account: ['email']</p>
+	<p>Reset Password associated with your account: <?php echo $_SESSION['email']?></p>
 
 	<div>
 		<form method="POST" action="processReset.php">
 			<?php
-			if(isset($_SESSION["error"]) && !empty($_SESSION["error"])){
-				echo "<span style='color:red'>" .$_SESSION["error"]."</span>";
-					// this line of code removes session variables after refresh
-					session_destroy();
-				}
+			print_error(); print_message();
 			?>
 			<?php
-			// TODO dont forget to add sessin logged in
-			if(!isset($_SESSION['LoggedIn'])){
+
+			if(!is_user_loggedIn()){
 				?>
 			<input
 			<?php

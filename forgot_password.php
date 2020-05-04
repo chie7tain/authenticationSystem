@@ -1,24 +1,19 @@
-<?php include_once('lib/header.php')?>
-	
+<?php include_once('lib/header.php');
+	require_once('functions/alert.php');
+?>
+
 	<h3>Forgot password</h3>
 	<p>Provide the email address associated with your accout</p>
 
 	<div>
 		<form method="POST" action="processForgot.php">
 			<?php
-				if(isset($_SESSION["error"]) && !empty($_SESSION["error"])){
-
-					echo "<span style='color:red'>" .$_SESSION["error"]."</span>";
-					// removes session variables
-					// session_unset();
-					// destroys session
-					session_destroy();
-				}
-			?>
+				error();
+				?>
 			<div>
 				<label>Email:</label><br>
-				<input 
-				<?php 
+				<input
+				<?php
 					if(isset($_SESSION['email'])){
 						echo "value=" . $_SESSION['email'];
 					}

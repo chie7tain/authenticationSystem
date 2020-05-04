@@ -1,4 +1,8 @@
-<?php include_once('lib/header.php')?>
+<?php include_once('lib/header.php');
+	require_once('functions/alert.php');
+			error(); message();
+?>
+
  <header class="header-container">
  	<h1>Welcome to SNH: Hospital for the ignorant</h1>
  	<div>
@@ -6,7 +10,7 @@
 		<p>Come as you are it is free for now!</p>
  	</div>
  </header>
- 
+
 
 <hr><hr>
 

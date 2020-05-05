@@ -8,7 +8,7 @@
 	<div>
 		<form method="POST" action="processForgot.php">
 			<?php
-				error();
+				print_error();
 				?>
 			<div>
 				<label>Email:</label><br>
